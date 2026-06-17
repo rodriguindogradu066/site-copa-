@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
   initScrollCTA();
+  initPixCopy();
 });
 
 // ─── GRADE DE NÚMEROS ─────────────────────
@@ -107,6 +108,25 @@ function flashButton(numFormatted) {
         btn.style.transform = '';
       }, 600);
     }
+  });
+}
+
+function initPixCopy() {
+  const pixButtons = document.querySelectorAll('.pix-copy-btn');
+  pixButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pixValue = btn.dataset.pix || '';
+      navigator.clipboard.writeText(pixValue).then(() => {
+        btn.textContent = 'PIX COPIADO';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'COPIAR PIX';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        btn.textContent = 'COPIAR MANUAL';
+      });
+    });
   });
 }
 
