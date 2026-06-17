@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorteio Camiseta do Brasil – Flow State</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <span>⚽ SORTEIO OFICIAL</span>
+    <span>🏆 ALTA QUALIDADE</span>
+    <span>🇧🇷 FLOW STATE</span>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__stars">⭐⭐⭐⭐⭐</div>
+    <div class="hero__badge">🏆 SORTEIO OFICIAL</div>
+
+    <h1 class="hero__title">
+      CAMISETA<br><span class="highlight">DO BRASIL</span>
+    </h1>
+    <p class="hero__edition">Flow State Edition · Copa do Brasil</p>
+
+    <!-- SORTEIO RELÂMPAGO DESIGNER IMAGE -->
+    <img class="raffle-designer-image" src="images/designer.png" alt="Sorteio Relâmpago" />
+
+    <div class="hero__badge hero__badge--alt">ALTA QUALIDADE</div>
+    <p class="hero__sub">Escolha o seu número e concorra a uma dessas camisetas!</p>
+  </header>
+
+  <!-- CONTADOR -->
+  <section class="countdown-section">
+    <p class="countdown-label">⏳ ENCERRA EM</p>
+    <div class="countdown" id="countdown">
+      <div class="countdown__unit">
+        <span class="countdown__num" id="days">00</span>
+        <span class="countdown__word">dias</span>
+      </div>
+      <span class="countdown__sep">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="hours">00</span>
+        <span class="countdown__word">horas</span>
+      </div>
+      <span class="countdown__sep">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="minutes">00</span>
+        <span class="countdown__word">min</span>
+      </div>
+      <span class="countdown__sep">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="seconds">00</span>
+        <span class="countdown__word">seg</span>
+      </div>
+    </div>
+    <p class="countdown-end">⚽ Sexta-feira · 18h00</p>
+  </section>
+
+  <!-- INFO CARDS -->
+  <section class="info-section">
+    <div class="info-cards">
+      <div class="info-card">
+        <span class="info-card__icon">🎁</span>
+        <p class="info-card__label">Prêmio</p>
+        <p class="info-card__value">Camiseta Oficial<br>do Brasil</p>
+      </div>
+      <div class="info-card">
+        <span class="info-card__icon">💰</span>
+        <p class="info-card__label">Por número</p>
+        <p class="info-card__value">R$ 5,00</p>
+      </div>
+      <div class="info-card">
+        <span class="info-card__icon">🔢</span>
+        <p class="info-card__label">Total</p>
+        <p class="info-card__value">200 números</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PRINCIPAL -->
+  <section class="cta-section">
+    <a href="https://wa.me/5563992795579?text=Ol%C3%A1%21+Quero+participar+do+sorteio+da+Camiseta+do+Brasil+%F0%9F%87%A7%F0%9F%87%B7"
+       class="btn-whatsapp" target="_blank" rel="noopener">
+      <svg class="btn-whatsapp__icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.672 4.8 1.84 6.8L2 30l7.4-1.82A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25D366"/>
+        <path d="M22.4 19.6c-.32-.16-1.88-.92-2.16-1.02-.28-.1-.48-.16-.68.16-.2.32-.76.96-.92 1.16-.16.2-.34.22-.62.06-.28-.16-1.18-.44-2.24-1.4-.82-.74-1.38-1.66-1.54-1.94-.16-.28-.02-.44.12-.58.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.04-.34-.02-.48-.06-.14-.68-1.64-.92-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.06 1.04-1.06 2.52 0 1.48 1.08 2.92 1.24 3.12.16.2 2.14 3.28 5.18 4.6.72.32 1.28.5 1.72.64.72.22 1.38.2 1.9.12.58-.08 1.88-.76 2.14-1.5.26-.74.26-1.38.18-1.52-.08-.14-.28-.22-.6-.38z" fill="white"/>
+      </svg>
+      QUERO PARTICIPAR
+    </a>
+    <p class="cta-hint">Clique e fale comigo no WhatsApp 👆</p>
+  </section>
+
+  <!-- GRADE DE NÚMEROS -->
+  <section class="numbers-section">
+    <h2 class="section-title">GRADE DE NÚMEROS</h2>
+    <p class="section-sub">Toque em um número para reservar</p>
+    <div class="legend">
+      <span class="legend__dot legend__dot--available"></span> Disponível
+      <span class="legend__dot legend__dot--reserved"></span> Reservado
+      <span class="legend__dot legend__dot--sold"></span> Pago
+    </div>
+    <div class="numbers-grid" id="numbersGrid"></div>
+    <div class="numbers-info"><p id="availableCount">200 disponíveis</p></div>
+  </section>
+
+  <!-- COMO PARTICIPAR -->
+  <section class="how-section">
+    <h2 class="section-title">COMO PARTICIPAR</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step__num">01</span>
+        <p class="step__text">Escolha um número na grade acima</p>
+      </div>
+      <div class="step">
+        <span class="step__num">02</span>
+        <p class="step__text">Clique no botão do WhatsApp e informe seu número</p>
+      </div>
+      <div class="step">
+        <span class="step__num">03</span>
+        <p class="step__text">Realize o pagamento de <strong>R$ 5,00 via PIX</strong></p>
+      </div>
+      <div class="step">
+        <span class="step__num">04</span>
+        <p class="step__text">Aguarde o sorteio na sexta às 18h! 🏆</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING CTA -->
+  <div class="floating-cta">
+    <a href="https://wa.me/5563992795579?text=Ol%C3%A1%21+Quero+participar+do+sorteio+da+Camiseta+do+Brasil+%F0%9F%87%A7%F0%9F%87%B7"
+       class="btn-whatsapp btn-whatsapp--float" target="_blank" rel="noopener">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.672 4.8 1.84 6.8L2 30l7.4-1.82A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25D366"/>
+        <path d="M22.4 19.6c-.32-.16-1.88-.92-2.16-1.02-.28-.1-.48-.16-.68.16-.2.32-.76.96-.92 1.16-.16.2-.34.22-.62.06-.28-.16-1.18-.44-2.24-1.4-.82-.74-1.38-1.66-1.54-1.94-.16-.28-.02-.44.12-.58.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.04-.34-.02-.48-.06-.14-.68-1.64-.92-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.06 1.04-1.06 2.52 0 1.48 1.08 2.92 1.24 3.12.16.2 2.14 3.28 5.18 4.6.72.32 1.28.5 1.72.64.72.22 1.38.2 1.9.12.58-.08 1.88-.76 2.14-1.5.26-.74.26-1.38.18-1.52-.08-.14-.28-.22-.6-.38z" fill="white"/>
+      </svg>
+      GARANTIR MEU NÚMERO
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__flag">🇧🇷</div>
+    <div class="footer__stars">⭐⭐⭐⭐⭐</div>
+    <p>Flow State © 2025 · Sorteio realizado ao vivo</p>
+    <p class="footer__sub">Dúvidas? Fale conosco no WhatsApp</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

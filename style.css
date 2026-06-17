@@ -1,0 +1,274 @@
+/* =========================================
+   FLOW STATE SORTEIO — style.css
+   Copa do Brasil: preto · verde #009C3B · ouro #FFD700 · azul #003087
+   ========================================= */
+
+:root {
+  --black:      #080808;
+  --black-2:    #0f0f0f;
+  --black-3:    #181818;
+  --black-4:    #222;
+  --green:      #009C3B;
+  --green-l:    #00c44a;
+  --gold:       #FFD700;
+  --gold-dark:  #c9a800;
+  --blue-br:    #003087;
+  --blue-l:     #1565C0;
+  --white:      #f5f5f5;
+  --dim:        rgba(245,245,245,0.55);
+  --faint:      rgba(245,245,245,0.06);
+  --wa:         #25D366;
+
+  --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-xl: 32px;
+  --font-d: 'Bebas Neue', sans-serif;
+  --font-b: 'Inter', sans-serif;
+  --glow-g: 0 0 24px rgba(255,215,0,.45), 0 0 60px rgba(255,215,0,.12);
+  --glow-gr: 0 0 20px rgba(0,156,59,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-b);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* ── TOPBAR ─────────────────────────── */
+.topbar{
+  display:flex;justify-content:center;gap:24px;flex-wrap:wrap;
+  background:var(--green);
+  color:var(--black);
+  font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  padding:7px 20px;
+}
+
+/* ── HERO ────────────────────────────── */
+.hero{
+  position:relative;text-align:center;
+  padding:44px 20px 48px;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% -10%,rgba(0,156,59,.15) 0%,transparent 55%),
+    radial-gradient(ellipse 70% 50% at 50% 110%,rgba(0,48,135,.15) 0%,transparent 60%),
+    var(--black);
+  overflow:hidden;
+}
+/* Linha dourada topo */
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green) 0%,var(--gold) 50%,var(--green) 100%)}
+/* Grid hexagonal Copa */
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='92' viewBox='0 0 80 92' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 4L4 24v40l36 20 36-20V24z' fill='none' stroke='%23FFD700' stroke-opacity='0.035' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.hero__stars{font-size:15px;letter-spacing:5px;color:var(--gold);text-shadow:var(--glow-g);margin-bottom:14px}
+
+.hero__badge{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--green),var(--green-l));
+  color:var(--black);font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;
+  padding:6px 18px;border-radius:999px;margin-bottom:18px;
+  box-shadow:var(--glow-gr);
+}
+.hero__badge--alt{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+  margin-top:20px;margin-bottom:0;
+  box-shadow:var(--glow-g);
+}
+
+.hero__title{
+  font-family:var(--font-d);
+  font-size:clamp(60px,19vw,114px);
+  line-height:.88;letter-spacing:2px;color:var(--white);
+}
+.hero__title .highlight{
+  color:var(--gold);text-shadow:var(--glow-g);display:block;
+}
+
+.hero__edition{
+  font-size:12px;font-weight:600;letter-spacing:5px;text-transform:uppercase;
+  color:var(--dim);margin-top:10px;margin-bottom:28px;
+}
+
+/* ── JERSEY SHOWCASE ─────────────────── */
+.jerseys-showcase{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;max-width:480px;margin:0 auto 8px;
+  position:relative;
+}
+
+.jersey-card{
+  position:relative;
+  padding:16px 12px 8px;
+  border-radius:var(--r-lg);
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .3s ease,box-shadow .3s ease;
+  flex:1;max-width:180px;
+}
+.jersey-card:hover{transform:translateY(-6px) scale(1.03)}
+
+.jersey-card--yellow{
+  background:radial-gradient(ellipse at 50% 30%,rgba(255,215,0,.1) 0%,transparent 70%);
+  border-color:rgba(255,215,0,.2);
+  box-shadow:0 0 30px rgba(255,215,0,.08);
+}
+.jersey-card--yellow:hover{box-shadow:0 0 50px rgba(255,215,0,.22),0 12px 40px rgba(0,0,0,.5)}
+
+.jersey-card--blue{
+  background:radial-gradient(ellipse at 50% 30%,rgba(0,48,135,.2) 0%,transparent 70%);
+  border-color:rgba(21,101,192,.3);
+  box-shadow:0 0 30px rgba(0,48,135,.12);
+}
+.jersey-card--blue:hover{box-shadow:0 0 50px rgba(21,101,192,.28),0 12px 40px rgba(0,0,0,.5)}
+
+.jersey-svg, .jersey-image{
+  width:100%;max-width:160px;height:auto;object-fit:contain;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,.6));
+  display:block;margin:0 auto;
+}
+
+.jersey-label{
+  font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  text-align:center;padding:4px 0 10px;
+}
+.jersey-label--yellow{color:var(--gold);text-shadow:0 0 10px rgba(255,215,0,.5)}
+.jersey-label--blue{color:#90CAF9;text-shadow:0 0 10px rgba(21,101,192,.5)}
+
+.jersey-vs{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;padding:0 8px;flex-shrink:0;
+  position:relative;z-index:2;
+}
+.jersey-vs span{
+  font-family:var(--font-d);font-size:28px;
+  color:var(--gold);text-shadow:var(--glow-g);
+}
+.jersey-vs__line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,rgba(255,215,0,.3),transparent)}
+
+.hero__sub{font-size:14px;color:var(--dim);margin-top:16px}
+
+/* ── COUNTDOWN ───────────────────────── */
+.countdown-section{
+  background:var(--black-2);
+  border-top:2px solid var(--green);
+  border-bottom:2px solid var(--gold);
+  padding:36px 20px;text-align:center;
+}
+.countdown-label{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;text-shadow:var(--glow-g)}
+.countdown{display:flex;align-items:flex-start;justify-content:center;gap:8px}
+.countdown__unit{display:flex;flex-direction:column;align-items:center;min-width:64px}
+.countdown__num{
+  font-family:var(--font-d);font-size:clamp(44px,12vw,68px);line-height:1;
+  color:var(--white);background:var(--black-3);
+  border:1px solid rgba(255,215,0,.25);border-radius:var(--r-sm);
+  padding:8px 12px;min-width:70px;text-align:center;
+  box-shadow:0 0 12px rgba(255,215,0,.1);display:block;
+}
+.countdown__word{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-top:6px}
+.countdown__sep{font-family:var(--font-d);font-size:56px;line-height:1.2;color:var(--gold);margin-top:4px}
+.countdown-end{font-size:13px;color:var(--gold);margin-top:16px;font-weight:600;letter-spacing:1px}
+
+/* ── INFO CARDS ──────────────────────── */
+.info-section{padding:36px 20px;background:var(--black)}
+.info-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:600px;margin:0 auto}
+.info-card{
+  background:var(--black-3);border:1px solid rgba(255,215,0,.1);
+  border-radius:var(--r-md);padding:20px 12px;text-align:center;
+  transition:border-color .25s,box-shadow .25s;
+}
+.info-card:hover{border-color:var(--gold);box-shadow:0 0 16px rgba(255,215,0,.15)}
+.info-card__icon{font-size:28px;display:block;margin-bottom:8px}
+.info-card__label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.info-card__value{font-size:14px;font-weight:700;color:var(--white);line-height:1.3}
+
+/* ── CTA ─────────────────────────────── */
+.cta-section{padding:8px 20px 36px;text-align:center}
+.btn-whatsapp{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--wa);color:#fff;
+  font-family:var(--font-b);font-weight:800;font-size:16px;letter-spacing:1.5px;
+  padding:16px 32px;border-radius:var(--r-xl);
+  box-shadow:0 4px 28px rgba(37,211,102,.4);
+  transition:transform .2s,box-shadow .2s;cursor:pointer;border:none;
+}
+.btn-whatsapp:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 40px rgba(37,211,102,.55)}
+.btn-whatsapp:active{transform:scale(.98)}
+.btn-whatsapp__icon,.btn-whatsapp svg{width:24px;height:24px;flex-shrink:0}
+.cta-hint{margin-top:12px;font-size:13px;color:var(--dim)}
+
+/* ── NUMBERS ─────────────────────────── */
+.numbers-section{padding:40px 20px 60px;background:var(--black-2);border-top:2px solid var(--green)}
+.section-title{font-family:var(--font-d);font-size:clamp(30px,8vw,46px);text-align:center;letter-spacing:3px;color:var(--white);margin-bottom:6px}
+.section-sub{text-align:center;font-size:14px;color:var(--dim);margin-bottom:24px}
+.legend{display:flex;align-items:center;justify-content:center;gap:16px;font-size:12px;font-weight:500;color:var(--dim);margin-bottom:24px;flex-wrap:wrap}
+.legend__dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px}
+.legend__dot--available{background:var(--black-4);border:1.5px solid rgba(255,215,0,.3)}
+.legend__dot--reserved{background:rgba(255,165,0,.5)}
+.legend__dot--sold{background:var(--green)}
+.numbers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:6px;max-width:720px;margin:0 auto 20px}
+.num-btn{
+  aspect-ratio:1;background:var(--black-4);
+  border:1.5px solid rgba(255,215,0,.15);border-radius:var(--r-sm);
+  color:var(--white);font-family:var(--font-b);font-size:11px;font-weight:600;
+  cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .1s;
+  display:flex;align-items:center;justify-content:center;letter-spacing:.5px;user-select:none;
+}
+.num-btn:hover{background:rgba(255,215,0,.1);border-color:var(--gold);box-shadow:0 0 10px rgba(255,215,0,.25);transform:scale(1.08)}
+.num-btn.reserved{background:rgba(255,140,0,.1);border-color:rgba(255,140,0,.4);color:rgba(255,140,0,.8);cursor:not-allowed}
+.num-btn.sold{background:rgba(0,156,59,.2);border-color:var(--green);color:var(--green-l);cursor:not-allowed;box-shadow:0 0 8px rgba(0,156,59,.3)}
+.numbers-info{text-align:center;font-size:13px;color:var(--dim);margin-top:12px}
+
+/* ── HOW TO ──────────────────────────── */
+.how-section{padding:40px 20px 60px;background:var(--black);border-top:2px solid var(--gold)}
+.steps{display:grid;gap:12px;max-width:500px;margin:28px auto 0}
+.step{display:flex;align-items:center;gap:20px;background:var(--black-3);border:1px solid rgba(255,215,0,.1);border-radius:var(--r-md);padding:18px 20px;transition:border-color .2s}
+.step:hover{border-color:rgba(255,215,0,.3)}
+.step__num{font-family:var(--font-d);font-size:32px;color:var(--gold);text-shadow:var(--glow-g);min-width:44px}
+.step__text{font-size:14px;color:var(--dim);line-height:1.5}
+.step__text strong{color:var(--white)}
+
+/* ── FLOATING CTA ────────────────────── */
+.floating-cta{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;width:calc(100% - 40px);max-width:420px;animation:floatUp .5s ease both}
+@keyframes floatUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.btn-whatsapp--float{width:100%;justify-content:center;font-size:15px;padding:15px 24px;border-radius:var(--r-xl);box-shadow:0 8px 36px rgba(37,211,102,.5),0 0 0 3px rgba(37,211,102,.12)}
+.btn-whatsapp--float svg{width:22px;height:22px}
+
+/* ── FOOTER ──────────────────────────── */
+.footer{background:var(--black-2);border-top:2px solid var(--green);padding:28px 20px 90px;text-align:center}
+.footer__flag{font-size:28px;margin-bottom:8px}
+.footer__stars{font-size:16px;letter-spacing:4px;margin-bottom:10px;color:var(--gold)}
+.footer p{font-size:12px;color:var(--dim)}
+.footer__sub{margin-top:4px}
+
+/* ── RAFFLE DESIGNER IMAGE ─────────────── */
+.raffle-designer-image{
+  max-width:100%;width:100%;height:auto;display:block;margin:32px auto;
+  border-radius:var(--r-xl);box-shadow:0 0 60px rgba(255,215,0,.15),0 0 120px rgba(0,48,135,.1);
+  animation:pulseGlow 3s ease-in-out infinite;
+}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 60px rgba(255,215,0,.15),0 0 120px rgba(0,48,135,.1)}50%{box-shadow:0 0 80px rgba(255,215,0,.25),0 0 140px rgba(0,48,135,.15)}}
+
+/* ── RESPONSIVE ──────────────────────── */
+@media(max-width:480px){
+/* ── RESPONSIVE ──────────────────────── */
+@media(max-width:480px){
+  .jerseys-showcase{gap:0;max-width:340px}
+  .jersey-card{max-width:148px;padding:12px 8px 6px}
+  .jersey-svg, .jersey-image{max-width:140px}
+  .jersey-vs span{font-size:20px}
+  .info-cards{gap:8px}
+  .info-card{padding:14px 8px}
+  .info-card__value{font-size:12px}
+  .numbers-grid{grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:5px}
+  .num-btn{font-size:10px}
+  .countdown__num{min-width:54px;padding:6px 8px}
+  .step{gap:14px}
+  .step__num{font-size:26px;min-width:36px}
+}
+@media(min-width:768px){
+  .numbers-grid{grid-template-columns:repeat(auto-fill,minmax(58px,1fr))}
+  .jerseys-showcase{max-width:520px}
+  .jersey-card{max-width:210px}
+}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--black-2)}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px}
+::selection{background:var(--green);color:var(--white)}
